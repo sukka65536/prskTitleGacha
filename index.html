@@ -15,8 +15,16 @@
     <div class="title-bar bg-info-subtle py-3">
         <h2 class="text-center m-0">プロセカ収録曲タイトルガチャ</h2>
     </div>
-    <div class="text-center my-5">
-        <button id="rollGacha" type="button" class="btn btn-lg btn-primary" style="width: 10rem;">回す</button>
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="my-3 me-3" style="width: 8rem;">
+            <label for="rollsCount" class="form-label">抽選数</label>
+            <div class="input-group input-group-lg">
+                <input type="number" class="form-control" id="rollsCount" value="3" min="1" max="100">
+            </div>
+        </div>
+        <div class="text-center my-5 ms-3">
+            <button id="rollGacha" type="button" class="btn btn-lg btn-primary" style="width: 8rem;">回す</button>
+        </div>
     </div>
     <div id="result" class="d-flex flex-wrap justify-content-center">
     </div>

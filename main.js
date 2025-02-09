@@ -1,12 +1,17 @@
 // @ts-check
 
 window.onload = () => {
+    const rollsCount = /** @type {HTMLInputElement} */
+        (requireNonNull(document.getElementById("rollsCount")));
     const rollGacha = requireNonNull(document.getElementById("rollGacha"));
     const result = requireNonNull(document.getElementById("result"));
 
     rollGacha.addEventListener("click", function () {
         result.innerHTML = "";
-        new Array(getRandomInt(3, 7)).fill(undefined)
+        const rollsCountValue = fixValue(Number(rollsCount.value), 1, 100);
+        const rollsCountValueFloored = Math.floor(rollsCountValue);
+
+        new Array(rollsCountValueFloored).fill(undefined)
             .map(empty => getRandomElement(titles))
             .forEach(title => {
                 result.innerHTML += `
@@ -43,6 +48,17 @@ function getRandomElement(array) {
     const rand = getRandomInt(0, array.length);
     const randomElement = array[rand];
     return randomElement;
+}
+
+/**
+ * 異常な数値をmin以上max以下の値に収まるように補正する
+ * @param {number} value
+ * @param {number} min
+ * @param {number} max
+ */
+function fixValue(value, min, max) {
+    const valueFixed = Math.min(Math.max(value, min), max);
+    return valueFixed;
 }
 
 /**
