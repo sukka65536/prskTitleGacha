@@ -1,5 +1,7 @@
 // @ts-check
 
+console.info("v1.0.4");
+
 window.onload = () => {
     const rollsCount = /** @type {HTMLInputElement} */
         (requireNonNull(document.getElementById("rollsCount")));
@@ -12,12 +14,11 @@ window.onload = () => {
         const rollsCountValueFloored = Math.floor(rollsCountValue);
 
         new Array(rollsCountValueFloored).fill(undefined)
-            .map(empty => getRandomElement(titles))
-            .forEach(title => {
+            .forEach(empty => {
                 result.innerHTML += `
                 <div class="card m-2">
                     <div class="card-body p-2">
-                        <p class="card-text">${getRandomElement(title)}</p>
+                        <p class="card-text">${getRandomElement(titles.flat())}</p>
                     </div>
                 </div>
                 `;
