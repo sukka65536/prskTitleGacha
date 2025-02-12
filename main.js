@@ -1,6 +1,6 @@
 // @ts-check
 
-console.info("v1.0.4");
+console.info("v1.0.5");
 
 window.onload = () => {
     const rollsCount = /** @type {HTMLInputElement} */
